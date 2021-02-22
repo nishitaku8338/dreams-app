@@ -54,6 +54,7 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise'
-gem "refile", require: "refile/rails", github: 'manfe/refile'
-gem "refile-mini_magick"
 gem "bulma-rails"
+
+gem 'mini_magick'                 # 画像の処理導入 ImageMagickの機能をRubyで扱える
+gem 'image_processing', '~> 1.2'  # 画像の処理導入 画像サイズを調整する機能
