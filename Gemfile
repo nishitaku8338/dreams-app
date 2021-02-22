@@ -58,8 +58,9 @@ end
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'devise'
-gem "bulma-rails"
+gem 'devise'                      # ユーザー管理機能導入
+gem 'pry-rails'                   # デバックツールを導入
+gem "bulma-rails"                 # CSSフレームワーク
 
 gem 'mini_magick'                 # 画像の処理導入 ImageMagickの機能をRubyで扱える
 gem 'image_processing', '~> 1.2'  # 画像の処理導入 画像サイズを調整する機能
