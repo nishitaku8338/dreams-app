@@ -17,8 +17,12 @@
             <div class="card-content">
               <div class="card-image">
                 <figure class="image">
-                  <%= link_to user_path(user) do %>  <%# 画像をクリックしたらユーザーの詳細ページに遷移する %>
-                    <%= image_tag "item-sample.png" %>
+                  <%= link_to user_path(user) do %>       <%# 画像をクリックしたらユーザーの詳細ページに遷移する %>
+                    <% if user.profile_image.present? %>  <%# プロフィール画像がある場合表示する %>
+                      <%= image_tag user.profile_image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0").processed %>
+                    <% else %>                            <%# プロフィール画像がない場合サンプル画像を表示する %>
+                      <%= image_tag "item-sample.png" %>
+                    <% end %>
                   <% end %>
                 </figure>
               </div>
