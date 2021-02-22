@@ -23,17 +23,50 @@
       </div>
     <% end %>
 
-    <%= link_to root_path, class: "navbar-item" do %>
-      <h1 class="title is-4" style="font-family: cursive;">Dreams person</h1>
-    <% end %>
 
-    <% if user_signed_in? %>  <%# ログイン状態の場合%>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-dark is-light" %>
-    <% else %>                <%# ログイン状態ではない場合%>
-      <%= link_to "ログイン", new_user_session_path, class: "button is-dark is-light" %>
-      <%= link_to "新規登録", new_user_registration_path, class: "button is-dark is-light" %>
-    <% end %>
+    <nav class="navbar is-primary">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-4" style="font-family: cursive;">Dreams person</h1>
+        <% end %>
+        <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
 
+      <% if user_signed_in? %>  <%# ログイン状態の場合%>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-item">
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="field is-grouped">
+                  <p class="control">
+                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% else %>                <%# ログイン状態ではない場合%>
+        <div id="navbarExampleTransparentExample" class="navbar-menu">
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
+                </p>
+                <p class="control">
+                  <%= link_to "新規登録", new_user_registration_path, class: "button is-warning is-light" %>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+
+    </nav>
     <%= yield %>
   </body>
 </html>
