@@ -17,7 +17,9 @@
             <div class="card-content">
               <div class="card-image">
                 <figure class="image">
+                  <%= link_to user_path(user) do %>  <%# 画像をクリックしたらユーザーの詳細ページに遷移する %>
                     <%= image_tag "item-sample.png" %>
+                  <% end %>
                 </figure>
               </div>
             </div>
