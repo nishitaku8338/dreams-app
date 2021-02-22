@@ -19,13 +19,14 @@ class UsersController < ApplicationController
     end
   end
 
-  private  # usersコントローラーのみ以下を実行する事ができる(セキュリティの強化)
+  private # usersコントローラーのみ以下を実行する事ができる(セキュリティの強化)
 
   def set_user
     @user = User.find(params[:id])
   end
 
-  def user_params  # 更新するカラムの中身
+  # 更新するカラムの中身
+  def user_params
     params.require(:user).permit(:username, :email, :profile, :profile_image)
   end
 end
