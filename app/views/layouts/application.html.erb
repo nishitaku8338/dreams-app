@@ -39,12 +39,16 @@
       <% if user_signed_in? %>  <%# ログイン状態の場合%>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-item">
-            <div class="navbar-end">
-              <div class="navbar-item">
-                <div class="field is-grouped">
-                  <p class="control">
-                    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
-                  </p>
+          </div>
+          <div class="navbar-end">
+            <div class="navbar-item">
+              <div class="field is-grouped">
+                <p class="control">
+                  <%= link_to "夢を語る者一覧", users_path, class: "button is-warning is-light" %>
+                </p>
+                <p class="control">
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+                </p>
               </div>
             </div>
           </div>
@@ -54,6 +58,9 @@
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
+                <%# <p class="control"> %>
+                  <%#= link_to "夢を語る者一覧", users_path, class: "button is-warning is-light" %>
+                <%# </p> %>
                 <p class="control">
                   <%= link_to "ログイン", new_user_session_path, class: "button is-warning is-light" %>
                 </p>
