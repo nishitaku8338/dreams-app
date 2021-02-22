@@ -21,7 +21,7 @@
           <p class="control has-icons-left">
             <%= f.text_field :username, autofocus: true, autocomplete: "email", :placeholder => "username", class: "input" %>
             <span class="icon is-small is-left">
-              <i class="fas fa-user"></i>
+              <i class="fas fa-user"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
             </span>
           </p>
         </div>
@@ -31,7 +31,7 @@
           <p class="control has-icons-left">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "email", class: "input" %>
             <span class="icon is-small is-left">
-              <i class="fas fa-envelope"></i>
+              <i class="fas fa-envelope"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
             </span>
           </p>
         </div>
@@ -44,17 +44,17 @@
           <p class="control has-icons-left">
           <%= f.password_field :password, autocomplete: "new-password", :placeholder => "password", class: "input" %>
             <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
+              <i class="fas fa-lock"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
             </span>
           </p>
         </div>
 
         <div class="field">
           <%= f.label :password_confirmation, class: "label" %>
-          <p class="control has-icons-left">
+          <p class="control has-icons-left ">
             <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "password confirmation", class: "input" %>
             <span class="icon is-small is-left">
-              <i class="fas fa-lock"></i>
+              <i class="fas fa-lock"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
             </span>
           </p>
         </div>
