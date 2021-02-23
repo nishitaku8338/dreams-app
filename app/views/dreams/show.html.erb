@@ -45,6 +45,11 @@
           <p class="panel-heading">
             <%= @dream.user.username %>     <%# 投稿したユーザー名を表示 %>
           </p>
+          <div class="panel-block">
+            <p class="control">
+              <%= @dream.user.profile %>    <%# 投稿したユーザーのプロフィールを表示 %>
+            </p>
+          </div>
           <%= link_to user_path(@dream.user), class: "panel-block" do %>   <%# 投稿したユーザーのユーザー詳細ページに遷移させる %>
           <span class="panel-icon">
             <i class="fas fa-user" aria-hidden="true"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
