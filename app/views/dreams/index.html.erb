@@ -16,7 +16,9 @@
           <div class="card">
             <div class="card-image">
               <figure class="image is-4by3">
-                <%= image_tag dream.image %>  <%# 画像を表示 %>
+                <%= link_to dream_path(dream) do %>  <%# 夢イメージ画像をクリックすると夢投稿詳細ページに遷移 %>
+                  <%= image_tag dream.image %>  <%# 夢イメージ画像を表示 %>
+                <% end %>
               </figure>
             </div>
             <div class="card-content">
