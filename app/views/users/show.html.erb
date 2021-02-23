@@ -41,7 +41,7 @@
             <table class="table is-fullwidth">
               <tr>
                 <td>
-                  <%= @user.profile %>
+                  <%= simple_format @user.profile %>
                 </td>
               </tr>
             </table>
@@ -52,5 +52,9 @@
   </div>
 </section>
 
-
-<%# 夢を語る投稿は後ほど実装 %>
+<% @user.dreams.each do |dream| %>                          <%# ユーザーが投稿した夢語一覧を表示する %>
+  <%= image_tag dream.image %>                              <%# ユーザーが投稿したイメージ画像を表示する %>
+  <%= link_to "詳細", dream_path(dream) %>                   <%# ユーザーが投稿した詳細ページに遷移する %>
+  <%= link_to "編集" edit_dream_path(dream) %>               <%# ユーザーが投稿した詳細ページを編集する %>
+  <%= link_to "削除" dream_path(dream), method: :delete %>   <%# ユーザーが投稿した詳細ページを削除する %>
+<% end %>
