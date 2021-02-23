@@ -39,6 +39,7 @@
       <% if user_signed_in? %>  <%# ログイン状態の場合%>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-item">
+            <%= link_to "夢語一覧", dreams_path, class: "navbar-item button is-warning is-light" %> <%# classの詳細:button:ボタン、is-warning:色、is-light:色の変化 %>
           </div>
           <div class="navbar-end">
             <div class="navbar-item">
