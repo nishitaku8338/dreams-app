@@ -40,11 +40,19 @@
           </div>
         </div>
       </div>
+      <div class="column is-4">
+        <article class="panel is-link">
+          <p class="panel-heading">
+            <%= @dream.user.username %>     <%# 投稿したユーザー名を表示 %>
+          </p>
+          <%= link_to user_path(@dream.user), class: "panel-block" do %>   <%# 投稿したユーザーのユーザー詳細ページに遷移させる %>
+          <span class="panel-icon">
+            <i class="fas fa-user" aria-hidden="true"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
+          </span>
+          <%= @dream.user.username %>さんのページへ  <%# ユーザー名をクリックすると、投稿したユーザーの詳細ページに遷移する %>
+          <% end %>
+        </article>
+      </div>
     </div>
   </div>
 </section>
-
-<%= @dream.user.username %>  <%# 投稿したユーザー名を表示 %>
-<%= link_to user_path(@dream.user) do %>   <%# 投稿したユーザーのユーザー詳細ページに遷移させる %>
-  <%= @dream.user.username %>さんのページへ  <%# ユーザー名をクリックすると、投稿したユーザーの詳細ページに遷移する %>
-<% end %>
