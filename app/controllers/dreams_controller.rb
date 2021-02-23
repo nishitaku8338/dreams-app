@@ -1,5 +1,6 @@
 class DreamsController < ApplicationController
   def index
+    @dreams = Dream.includes(:user)
   end
 
   def new
