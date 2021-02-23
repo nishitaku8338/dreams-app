@@ -1,2 +1,37 @@
-<h1>Dreams#edit</h1>
-<p>Find me in app/views/dreams/edit.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        夢語り編集
+      </h1>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= form_with model: @dream, local: true do |f| %>
+
+          <div class="field">
+            <%= f.label :title, "叶えたい事", class: "label" %>       <%# titleラベルを生成 %>
+            <%= f.text_field :title, class: "input" %>              <%# title入力欄を生成 %>
+          </div>
+
+          <div class="field">
+            <%= f.label :body, "なぜ叶えたいのか？", class: "label" %>  <%# bodyラベルを生成 %>
+            <%= f.text_area :body, class: "textarea" %>                 <%# body入力欄を生成 %>
+          </div>
+
+          <div class="field">
+            <%= f.label :imege, "イメージする写真", class: "label" %>   <%# imageラベルを生成 %>
+            <%= f.file_field :image, class: "input" %>               <%# image入力欄を生成 %>
+          </div>
+
+          <%= f.submit '更新', class: "button is-success" %>          <%# 送信ボタンを生成 %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
