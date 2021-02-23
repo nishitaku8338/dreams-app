@@ -74,18 +74,20 @@
                     この夢語を見る
                   <% end %>
                   
-                  <%= link_to edit_dream_path(dream), class: "panel-block" do %>  <%# ユーザーが投稿した詳細ページを編集する %>
-                    <span class="panel-icon">
-                      <i class="fas fa-edit"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
-                    </span>
-                    この夢語を編集する
-                  <% end %>
+                  <% if @user.id == current_user.id %>  <%# ユーザー本人の場合編集と削除が表示される %>
+                    <%= link_to edit_dream_path(dream), class: "panel-block" do %>  <%# ユーザーが投稿した詳細ページを編集する %>
+                      <span class="panel-icon">
+                        <i class="fas fa-edit"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
+                      </span>
+                      この夢語を編集する
+                    <% end %>
 
-                  <%= link_to dream_path(dream), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>   <%# ユーザーが投稿した詳細ページを削除する %>
-                    <span class="panel-icon">
-                      <i class="fas fa-trash"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
-                    </span>
-                    この夢語を削除する
+                    <%= link_to dream_path(dream), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>   <%# ユーザーが投稿した詳細ページを削除する %>
+                      <span class="panel-icon">
+                        <i class="fas fa-trash"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
+                      </span>
+                      この夢語を削除する
+                    <% end %>
                   <% end %>
                 </div>
               </div>
