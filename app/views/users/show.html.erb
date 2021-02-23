@@ -66,10 +66,13 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <%= link_to "詳細", dream_path(dream) %>  <%# ユーザーが投稿した詳細ページに遷移する %>
-                  <%= link_to "編集", edit_dream_path(dream) %>  <%# ユーザーが投稿した詳細ページを編集する %>
-                  <%= link_to "削除", dream_path(dream), method: :delete, data: {confirm: "削除しますか？"} %>   <%# ユーザーが投稿した詳細ページを削除する %>
+                  <%= link_to "詳細", dream_path(dream), class: "panel-block" %>  <%# ユーザーが投稿した詳細ページに遷移する %>
+                  <%= link_to "編集", edit_dream_path(dream), class: "panel-block" %>  <%# ユーザーが投稿した詳細ページを編集する %>
+                  <%= link_to "削除", dream_path(dream), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" %>   <%# ユーザーが投稿した詳細ページを削除する %>
                 </div>
+              </div>
+              <div class="content">
+                <time><%= dream.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新  <%# ユーザーが投稿した更新日を表示 %>
               </div>
             </div>
           </div>
