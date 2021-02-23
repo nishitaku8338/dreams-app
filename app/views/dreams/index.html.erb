@@ -31,11 +31,11 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <div class="title"><%= dream.user.username %></div>  <%# 投稿したユーザーのユーザー名を表示 %>
+                  <div class="title"><%= link_to dream.user.username, user_path(dream.user.id) %></div>  <%# 投稿したユーザーのユーザー名を表示し、クリックしたらユーザー詳細画面に遷移 %>
                 </div>
               </div>
               <div class="content">
-                <time><%= dream.updated_at.strftime("%Y-%m-%d %H:%M") %></time>  <%# 投稿した日(日本時間に設定) %>
+                <time><%= dream.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新  <%# 投稿した日(日本時間に設定) %>
               </div>
             </div>
           </div>
