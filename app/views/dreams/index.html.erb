@@ -25,7 +25,7 @@
               <div class="media">
                 <div class="media-left">
                   <figure class="image is-48x48">
-                    <% link_to user_path(dream.user.id) do %>  <%# プロフィール画像をクリックしたらユーザーの詳細ページに遷移 %>
+                    <%= link_to user_path(dream.user.id) do %>  <%# プロフィール画像をクリックしたらユーザーの詳細ページに遷移 %>
                       <%= image_tag dream.user.profile_image %>  <%# 投稿したユーザーのユーザープロフィール画像を表示 %>
                     <% end %>
                   </figure>
