@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, except: [:index, :new, :create]
+  before_action :authenticate_user!, except: [:index, :show]  # deviseのメソッド！ログインしていないユーザーはユーザー一覧画面のみアクセス可。
 
   def index
     @users = User.all
