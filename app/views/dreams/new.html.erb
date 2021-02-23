@@ -1,17 +1,37 @@
-<h1>Dreams#new</h1>
-<p>Find me in app/views/dreams/new.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        新規夢語りを作成
+      </h1>
+    </div>
+  </div>
+</section>
 
-<%= form_with model: @dream, local: true do |f| %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-6">
+        <%= form_with model: @dream, local: true do |f| %>
 
-  <%= f.label :title %>         <%# titleラベルを生成 %>
-  <%= f.text_field :title %>    <%# title入力欄を生成 %>
+          <div class="field">
+            <%= f.label :title, "叶えたい事", class: "label" %>       <%# titleラベルを生成 %>
+            <%= f.text_field :title, class: "input" %>              <%# title入力欄を生成 %>
+          </div>
 
-  <%= f.label :body %>          <%# bodyラベルを生成 %>
-  <%= f.text_area :body %>      <%# body入力欄を生成 %>
+          <div class="field">
+            <%= f.label :body, "なぜ叶えたいのか？", class: "label" %>  <%# bodyラベルを生成 %>
+            <%= f.text_area :body, class: "input" %>                 <%# body入力欄を生成 %>
+          </div>
 
-  <%= f.label :imege %>         <%# imageラベルを生成 %>
-  <%= f.file_field :image %>    <%# image入力欄を生成 %>
+          <div class="field">
+            <%= f.label :imege, "イメージする写真", class: "label" %>   <%# imageラベルを生成 %>
+            <%= f.file_field :image, class: "input" %>               <%# image入力欄を生成 %>
+          </div>
 
-  <%= f.submit %>               <%# 送信ボタンを生成 %>
-
-<% end %>
+          <%= f.submit '投稿', class: "button is-success" %>          <%# 送信ボタンを生成 %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
