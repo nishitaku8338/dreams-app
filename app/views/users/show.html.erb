@@ -66,9 +66,27 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
-                  <%= link_to "詳細", dream_path(dream), class: "panel-block" %>  <%# ユーザーが投稿した詳細ページに遷移する %>
-                  <%= link_to "編集", edit_dream_path(dream), class: "panel-block" %>  <%# ユーザーが投稿した詳細ページを編集する %>
-                  <%= link_to "削除", dream_path(dream), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" %>   <%# ユーザーが投稿した詳細ページを削除する %>
+                  
+                  <%= link_to dream_path(dream), class: "panel-block" do %>  <%# ユーザーが投稿した詳細ページに遷移する %>
+                    <span class="panel-icon">
+                      <i class="fas fa-book" aria-hidden="true"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
+                    </span>
+                    この夢語を見る
+                  <% end %>
+                  
+                  <%= link_to edit_dream_path(dream), class: "panel-block" do %>  <%# ユーザーが投稿した詳細ページを編集する %>
+                    <span class="panel-icon">
+                      <i class="fas fa-edit"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
+                    </span>
+                    この夢語を編集する
+                  <% end %>
+
+                  <%= link_to dream_path(dream), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>   <%# ユーザーが投稿した詳細ページを削除する %>
+                    <span class="panel-icon">
+                      <i class="fas fa-trash"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
+                    </span>
+                    この夢語を削除する
+                  <% end %>
                 </div>
               </div>
               <div class="content">
