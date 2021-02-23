@@ -28,13 +28,15 @@
                 <td class="is-size-4">
                   <strong><%= @user.username %></strong>
                 </td>
-                <% if @user.id == current_user.id %>  <%# ユーザー本人のマイページは編集ボタンとemailが表示される %>
-                  <td class="is-size-4">
-                    <%= @user.email %>
-                  </td>
-                  <td>
-                    <%= link_to "編集", edit_user_path(@user), class: "button is-primary" %>
-                  </td>
+                <% if user_signed_in? %> 
+                  <% if @user.id == current_user.id %>  <%# ユーザー本人のマイページは編集ボタンとemailが表示される %>
+                    <td class="is-size-4">
+                      <%= @user.email %>
+                    </td>
+                    <td>
+                      <%= link_to "編集", edit_user_path(@user), class: "button is-primary" %>
+                    </td>
+                  <% end %>
                 <% end %>
               </tr>
             </table>
@@ -74,19 +76,21 @@
                     この夢語を見る
                   <% end %>
                   
-                  <% if @user.id == current_user.id %>  <%# ユーザー本人の場合編集と削除が表示される %>
-                    <%= link_to edit_dream_path(dream), class: "panel-block" do %>  <%# ユーザーが投稿した詳細ページを編集する %>
-                      <span class="panel-icon">
-                        <i class="fas fa-edit"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
-                      </span>
-                      この夢語を編集する
-                    <% end %>
+                  <% if user_signed_in? %>
+                    <% if @user.id == current_user.id %>  <%# ユーザー本人の場合編集と削除が表示される %>
+                      <%= link_to edit_dream_path(dream), class: "panel-block" do %>  <%# ユーザーが投稿した詳細ページを編集する %>
+                        <span class="panel-icon">
+                          <i class="fas fa-edit"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
+                        </span>
+                        この夢語を編集する
+                      <% end %>
 
-                    <%= link_to dream_path(dream), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>   <%# ユーザーが投稿した詳細ページを削除する %>
-                      <span class="panel-icon">
-                        <i class="fas fa-trash"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
-                      </span>
-                      この夢語を削除する
+                      <%= link_to dream_path(dream), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>   <%# ユーザーが投稿した詳細ページを削除する %>
+                        <span class="panel-icon">
+                          <i class="fas fa-trash"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
+                        </span>
+                        この夢語を削除する
+                      <% end %>
                     <% end %>
                   <% end %>
                 </div>

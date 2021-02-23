@@ -1,33 +1,31 @@
 require 'rails_helper'
 
-RSpec.describe "Dreams", type: :request do
-
-  describe "GET /index" do
-    it "returns http success" do
-      get "/dreams/index"
+RSpec.describe 'Dreams', type: :request do
+  describe 'GET /index' do
+    it 'returns http success' do
+      get '/dreams/index'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /new" do
-    it "returns http success" do
-      get "/dreams/new"
+  describe 'GET /new' do
+    it 'returns http success' do
+      get '/dreams/new'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /show" do
-    it "returns http success" do
-      get "/dreams/show"
+  describe 'GET /show' do
+    it 'returns http success' do
+      get '/dreams/show'
       expect(response).to have_http_status(:success)
     end
   end
 
-  describe "GET /edit" do
-    it "returns http success" do
-      get "/dreams/edit"
+  describe 'GET /edit' do
+    it 'returns http success' do
+      get '/dreams/edit'
       expect(response).to have_http_status(:success)
     end
   end
-
 end
