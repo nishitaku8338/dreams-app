@@ -1,14 +1,42 @@
-<h1>Dreams#index</h1>
-<p>Find me in app/views/dreams/index.html.erb</p>
+<section class="hero is-success">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        夢語一覧
+      </h1>
+    </div>
+  </div>
+</section>
 
-<% @dreams.each do |dream| %>  <%# dreamsテーブルから全てのデータを取り出す %>
-
-<%= image_tag dream.image %>   <%# 画像を表示 %>
-
-<%= image_tag dream.user.profile_image %>  <%# 投稿したユーザーのユーザープロフィール画像を表示 %>
-
-<%= dream.user.username %>     <%# 投稿したユーザーのユーザー名を表示 %>
-
-<%= dream.updated_at.strftime("%Y-%m-%d %H:%M") %>  <%# 投稿した日(日本時間に設定) %>
-
-<% end %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @dreams.each do |dream| %>  <%# dreamsテーブルから全てのデータを取り出す %>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                <%= image_tag dream.image %>  <%# 画像を表示 %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-left">
+                  <figure class="image is-48x48">
+                    <%= image_tag dream.user.profile_image %>  <%# 投稿したユーザーのユーザープロフィール画像を表示 %>
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <div class="title"><%= dream.user.username %></div>  <%# 投稿したユーザーのユーザー名を表示 %>
+                </div>
+              </div>
+              <div class="content">
+                <time><%= dream.updated_at.strftime("%Y-%m-%d %H:%M") %></time>  <%# 投稿した日(日本時間に設定) %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
