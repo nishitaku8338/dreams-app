@@ -52,9 +52,29 @@
   </div>
 </section>
 
-<% @user.dreams.each do |dream| %>                          <%# ユーザーが投稿した夢語一覧を表示する %>
-  <%= image_tag dream.image %>                              <%# ユーザーが投稿したイメージ画像を表示する %>
-  <%= link_to "詳細", dream_path(dream) %>                   <%# ユーザーが投稿した詳細ページに遷移する %>
-  <%= link_to "編集", edit_dream_path(dream) %>               <%# ユーザーが投稿した詳細ページを編集する %>
-  <%= link_to "削除", dream_path(dream), method: :delete, data: {confirm: "削除しますか？"} %>   <%# ユーザーが投稿した詳細ページを削除する %>
-<% end %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @user.dreams.each do |dream| %>  <%# ユーザーが投稿した夢語一覧を表示する %>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                  <%= image_tag dream.image %>  <%# ユーザーが投稿したイメージ画像を表示する %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  <%= link_to "詳細", dream_path(dream) %>  <%# ユーザーが投稿した詳細ページに遷移する %>
+                  <%= link_to "編集", edit_dream_path(dream) %>  <%# ユーザーが投稿した詳細ページを編集する %>
+                  <%= link_to "削除", dream_path(dream), method: :delete, data: {confirm: "削除しますか？"} %>   <%# ユーザーが投稿した詳細ページを削除する %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
