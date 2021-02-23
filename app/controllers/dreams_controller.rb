@@ -33,6 +33,12 @@ class DreamsController < ApplicationController
     end
   end
 
+  def destroy
+    dream = Dream.find(params[:id])
+    dream.destroy
+    redirect_to dreams_path
+  end
+
   private  # dreamsコントローラーの中でしか呼び出せない(セキュリティ強化)
   
   def dream_params  # new.html.erbのフォームから送信されたカラムの内容を受け取る
