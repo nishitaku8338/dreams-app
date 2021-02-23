@@ -1,4 +1,6 @@
 class DreamsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]  # deviseのメソッド！ログインしていないユーザーは投稿一覧画面のみアクセス可。
+
   def index
     @dreams = Dream.includes(:user)
   end
