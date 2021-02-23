@@ -3,6 +3,7 @@ class DreamsController < ApplicationController
   end
 
   def new
+    @dream = Dream.new  # オブジェクトを生成
   end
 
   def show

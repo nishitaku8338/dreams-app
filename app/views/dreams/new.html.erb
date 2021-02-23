@@ -1,2 +1,17 @@
 <h1>Dreams#new</h1>
 <p>Find me in app/views/dreams/new.html.erb</p>
+
+<%= form_with model: @dream, local: true do |f| %>
+
+  <%= f.label :title %>         <%# titleラベルを生成 %>
+  <%= f.text_field :title %>    <%# title入力欄を生成 %>
+
+  <%= f.label :body %>          <%# bodyラベルを生成 %>
+  <%= f.text_area :body %>      <%# body入力欄を生成 %>
+
+  <%= f.label :imege %>         <%# imageラベルを生成 %>
+  <%= f.file_field :image %>    <%# image入力欄を生成 %>
+
+  <%= f.submit %>               <%# 送信ボタンを生成 %>
+
+<% end %>
