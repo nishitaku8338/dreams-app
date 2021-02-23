@@ -20,6 +20,7 @@ class DreamsController < ApplicationController
   end
 
   def edit
+    @dream = Dream.find(params[:id])
   end
 
   private  # dreamsコントローラーの中でしか呼び出せない(セキュリティ強化)
