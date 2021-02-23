@@ -44,4 +44,7 @@
   </div>
 </section>
 
-<%#= @dream.user.username %>
+<%= @dream.user.username %>  <%# 投稿したユーザー名を表示 %>
+<%= link_to user_path(@dream.user) do %>   <%# 投稿したユーザーのユーザー詳細ページに遷移させる %>
+  <%= @dream.user.username %>さんのページへ  <%# ユーザー名をクリックすると、投稿したユーザーの詳細ページに遷移する %>
+<% end %>
