@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, except: [:index, :new, :create]
-  before_action :authenticate_user!, except: [:index, :show]  # deviseのメソッド！ログインしていないユーザーはユーザー一覧画面のみアクセス可。
+  before_action :authenticate_user!, except: [:index, :show]  # deviseのメソッド！未登録ユーザーは投稿一覧画面と投稿詳細画面のみアクセスできる
+  before_action :set_user, except: [:index, :new, :create]    # 単一レコードを取得する
 
   def index
     @users = User.all
@@ -10,6 +10,9 @@ class UsersController < ApplicationController
   end
 
   def edit
+    if @user != current_user  # ユーザー本人のみプロフィールの編集ができる(URL直入力制限)
+      redirect_to users_path, alert: '不正なアクセスです。'
+    end
   end
 
   def update
@@ -22,12 +25,11 @@ class UsersController < ApplicationController
 
   private # usersコントローラーのみ以下を実行する事ができる(セキュリティの強化)
 
-  def set_user
+  def set_user  # 単一レコードを取得する
     @user = User.find(params[:id])
   end
 
-  # 更新するカラムの中身
-  def user_params
+  def user_params  # 更新するカラムの中身
     params.require(:user).permit(:username, :email, :profile, :profile_image)
   end
 end
