@@ -23,6 +23,15 @@ class DreamsController < ApplicationController
     @dream = Dream.find(params[:id])
   end
 
+  def update
+    @dream = Dream.find(params[:id])
+    if @dream.update(dream_params)        # 更新する中身(カラム)を定義する
+      redirect_to dream_path(@dream)      # 更新できたら投稿詳細ページに遷移する
+    else
+      render :edit                        # 更新されなかったら投稿編集ページにとどまる
+    end
+  end
+
   private  # dreamsコントローラーの中でしか呼び出せない(セキュリティ強化)
   
   def dream_params  # new.html.erbのフォームから送信されたカラムの内容を受け取る
