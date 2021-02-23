@@ -52,9 +52,52 @@
   </div>
 </section>
 
-<% @user.dreams.each do |dream| %>                          <%# ユーザーが投稿した夢語一覧を表示する %>
-  <%= image_tag dream.image %>                              <%# ユーザーが投稿したイメージ画像を表示する %>
-  <%= link_to "詳細", dream_path(dream) %>                   <%# ユーザーが投稿した詳細ページに遷移する %>
-  <%= link_to "編集", edit_dream_path(dream) %>               <%# ユーザーが投稿した詳細ページを編集する %>
-  <%= link_to "削除", dream_path(dream), method: :delete, data: {confirm: "削除しますか？"} %>   <%# ユーザーが投稿した詳細ページを削除する %>
-<% end %>
+<section class="section">
+  <div class="container">
+    <div class="columns is-multiline">
+      <% @user.dreams.each do |dream| %>  <%# ユーザーが投稿した夢語一覧を表示する %>
+        <div class="column is-4">
+          <div class="card">
+            <div class="card-image">
+              <figure class="image is-4by3">
+                  <%= image_tag dream.image %>  <%# ユーザーが投稿したイメージ画像を表示する %>
+              </figure>
+            </div>
+            <div class="card-content">
+              <div class="media">
+                <div class="media-content">
+                  
+                  <%= link_to dream_path(dream), class: "panel-block" do %>  <%# ユーザーが投稿した詳細ページに遷移する %>
+                    <span class="panel-icon">
+                      <i class="fas fa-book" aria-hidden="true"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
+                    </span>
+                    この夢語を見る
+                  <% end %>
+                  
+                  <% if @user.id == current_user.id %>  <%# ユーザー本人の場合編集と削除が表示される %>
+                    <%= link_to edit_dream_path(dream), class: "panel-block" do %>  <%# ユーザーが投稿した詳細ページを編集する %>
+                      <span class="panel-icon">
+                        <i class="fas fa-edit"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
+                      </span>
+                      この夢語を編集する
+                    <% end %>
+
+                    <%= link_to dream_path(dream), method: :delete, data: {confirm: "削除しますか？"}, class: "panel-block" do %>   <%# ユーザーが投稿した詳細ページを削除する %>
+                      <span class="panel-icon">
+                        <i class="fas fa-trash"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
+                      </span>
+                      この夢語を削除する
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="content">
+                <time><%= dream.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新  <%# ユーザーが投稿した更新日を表示 %>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
