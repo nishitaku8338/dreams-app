@@ -39,19 +39,20 @@ class DreamsController < ApplicationController
     redirect_to dreams_path            # 投稿一覧ページに遷移する
   end
 
-  private  # dreamsコントローラーの中でしか呼び出せない(セキュリティ強化)
-  
-  def dream_params  # new.html.erbのフォームから送信されたカラムの内容を受け取る(ストロングパラメーター)
+  private # dreamsコントローラーの中でしか呼び出せない(セキュリティ強化)
+
+  # new.html.erbのフォームから送信されたカラムの内容を受け取る(ストロングパラメーター)
+  def dream_params
     params.require(:dream).permit(:title, :body, :image).merge(user_id: current_user.id)
   end
 
-  def set_dream  # 単一レコードを取得
+  # 単一レコードを取得
+  def set_dream
     @dream = Dream.find(params[:id])
   end
 
-  def ensure_correct_user  # ユーザー本人のみ投稿内容の編集・削除ができる(URL直入力制限)
-    if @dream.user != current_user
-      redirect_to dreams_path, alert: '不正なアクセスです。'
-    end
+  # ユーザー本人のみ投稿内容の編集・削除ができる(URL直入力制限)
+  def ensure_correct_user
+    redirect_to dreams_path, alert: '不正なアクセスです。' if @dream.user != current_user
   end
 end
