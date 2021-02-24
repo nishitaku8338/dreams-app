@@ -17,7 +17,7 @@
             <div class="card-image">
               <figure class="image is-4by3">
                 <%= link_to dream_path(dream) do %>  <%# 夢イメージ画像をクリックすると夢投稿詳細ページに遷移 %>
-                  <%= image_tag dream.image %>  <%# 夢イメージ画像を表示 %>
+                  <%= image_tag dream.image %>       <%# 夢イメージ画像を表示 %>
                 <% end %>
               </figure>
             </div>
@@ -25,8 +25,12 @@
               <div class="media">
                 <div class="media-left">
                   <figure class="image is-48x48">
-                    <%= link_to user_path(dream.user.id) do %>  <%# プロフィール画像をクリックしたらユーザーの詳細ページに遷移 %>
-                      <%= image_tag dream.user.profile_image %>  <%# 投稿したユーザーのユーザープロフィール画像を表示 %>
+                    <%= link_to user_path(dream.user.id) do %>     <%# プロフィール画像をクリックしたらユーザーの詳細ページに遷移 %>
+                      <% if dream.user.profile_image.present? %>   <%# プロフィール画像がある場合表示する %>
+                        <%= image_tag dream.user.profile_image %>  <%# ユーザーのプロフィール画像を表示 %>
+                      <% else %>                                   <%# ユーザーのプロフィール画像がない場合サンプル画像を表示する %>
+                        <%= image_tag "item-sample.png" %>         <%# サンプルプロフィール画像を表示 %>
+                      <% end %>
                     <% end %>
                   </figure>
                 </div>
