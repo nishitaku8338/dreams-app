@@ -1,0 +1,10 @@
+<% if @dream.errors.any? %>  <%# エラーがあるか定義する %>
+  <div class="notification is-danger">  <%# bulma-railsの記法 %>
+    <h2><%= pluralize(@dream.errors.count, "error") %> prohibited this object from being saved: not successfully</h2>  <%# pluralizeメソッドは単語の単数系と複数形を判定してくれる、エラーの数に応じる %>
+    <ul>
+      <% @dream.errors.full_messages.each do |message| %>    <%# エラーの内容を表示 %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
