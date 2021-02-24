@@ -15,7 +15,8 @@ class UsersController < ApplicationController
 
   def update
     if @user.update(user_params)        # 更新する中身(カラム)を定義する
-      redirect_to user_path(@user)      # 更新できたらユーザー詳細ページに遷移する
+      redirect_to user_path(@user),     # 更新できたらユーザー詳細ページに遷移する
+      notice: "マイページを更新しました"    # フラッシュメッセージを作成
     else
       render :edit                      # 更新されなかったら編集ページにとどまる
     end
