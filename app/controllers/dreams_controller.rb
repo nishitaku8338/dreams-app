@@ -14,7 +14,8 @@ class DreamsController < ApplicationController
   def create
     @dream = Dream.new(dream_params)   # ストロングパラメーターに引き渡す
     if @dream.save                     # 投稿を保存する
-      redirect_to dream_path(@dream)   # 保存できたら詳細ページに遷移する
+      redirect_to dream_path(@dream),  # 保存できたら詳細ページに遷移する
+      notice: "夢語を投稿しました"        # フラッシュメッセージを作成
     else
       render :new                      # 保存できなかったら投稿ページにとどまる
     end
@@ -28,7 +29,8 @@ class DreamsController < ApplicationController
 
   def update
     if @dream.update(dream_params)     # 更新する中身(カラム)をストロングパラメーターに引き渡す
-      redirect_to dream_path(@dream)   # 更新できたら投稿詳細ページに遷移する
+      redirect_to dream_path(@dream),  # 更新できたら投稿詳細ページに遷移する
+      notice: "夢語を更新しました"        # フラッシュメッセージを作成
     else
       render :edit                     # 更新されなかったら投稿編集ページにとどまる
     end
@@ -36,7 +38,8 @@ class DreamsController < ApplicationController
 
   def destroy
     @dream.destroy
-    redirect_to dreams_path            # 投稿一覧ページに遷移する
+    redirect_to dreams_path,           # 投稿一覧ページに遷移する
+    notice: "夢語を削除しました"          # フラッシュメッセージを作成
   end
 
   private # dreamsコントローラーの中でしか呼び出せない(セキュリティ強化)
