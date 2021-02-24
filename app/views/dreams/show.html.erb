@@ -21,7 +21,8 @@
           <div class="card-content">
             <div class="media">
               <div class="media-content">
-                <p class="title is-4"><%= @dream.title %></p>
+                <p class="title is-5">叶えたい夢</p>  <%# 叶えたい夢のタイトル %>
+                <p class="title is-4"><%= @dream.title %></p>  <%# 叶えたい夢のタイトル %>
               </div>
             </div>
             <div class="content">
@@ -30,13 +31,27 @@
                   <th>夢語り</th>
                 </tr>
                 <tr>
-                  <td><%= simple_format @dream.body %></td>
+                  <td><%= simple_format @dream.body %></td>    <%# 夢語りの内容 %>
                 </tr>
               </table>
               <% if user_signed_in? %>
+                <table class="table is-narrow">
+                  <% if current_user.already_favorited?(@dream) %>  <%# いいねを押した記事がある判断する %>
+                    <%= link_to dream_like_path(@dream), method: :delete do %>
+                      <i class="fas fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
+                    <% end %>
+                  <% else %>
+                    <%= link_to dream_likes_path(@dream), method: :post do %>
+                      <i class="far fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
+                    <% end %>
+                  <% end %>
+                  <%= @dream.likes.count %>  <%# いいねの数を表示する %>
+                </table>
                 <% if @dream.user.id == current_user.id %>  <%# ユーザー本人なら編集ボタンを表示 %>
                   <%= link_to "編集画面へ", edit_dream_path(@dream), class: "button is-success" %>
                 <% end %>
+              <% else %>
+                <table class="table is-narrow"><td>登録者のいいね数👍：<%= @dream.likes.count %></td></table>
               <% end %>
             </div>
           </div>
