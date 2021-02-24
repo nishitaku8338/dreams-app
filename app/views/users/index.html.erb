@@ -30,11 +30,12 @@
             <div class="card-content">
               <div class="media">
                 <div class="media-content">
+                  夢語者
                   <div class="title"><%=link_to user.username, user_path(user) %></div>  <%# ユーザーの名前をクリックしたらユーザーの詳細ページに遷移する %>
                 </div>
               </div>
               <div class="content">
-                投稿数：<%= user.dreams.count %>  <%# ユーザーに紐づいている夢語をカウントする %>
+                📃投稿数：<%= user.dreams.count %>  <%# ユーザーに紐づいている夢語をカウントする %>
               </div>
             </div>
           </div>

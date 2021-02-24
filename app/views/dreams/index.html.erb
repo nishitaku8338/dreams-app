@@ -49,7 +49,10 @@
                       <i class="far fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
                     <% end %>
                   <% end %>
-                  <%= dream.likes.count %>  <%# いいねの数を表示する %>
+                  <%= dream.likes.count %></table>  <%# いいねの数を表示する %>
+                <% else %>
+                  <table class="table is-narrow">夢語：<%= dream.title %></table>
+                  <table class="table is-narrow">登録者のいいね数👍：<%= dream.likes.count %></table>  <%# いいねの数を表示する %>
                 <% end %>
               </div>
               <div class="content">
