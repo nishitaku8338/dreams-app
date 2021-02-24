@@ -39,6 +39,16 @@
                 </div>
               </div>
               <div class="content">
+                <% if user_signed_in? %>  <%# ログインしたユーザーのみいいね機能がみれる %>
+                  <% if current_user.already_favorited?(dream) %>  <%# いいねを押した記事がある判断する %>
+                    <%= link_to 'いいねを外す', dream_like_path(@dreams, dream), method: :delete %>
+                  <% else %>
+                    <%= link_to 'いいね', dream_likes_path(dream), method: :post %>
+                  <% end %>
+                  <%= dream.likes.count %>  <%# いいねの数を表示する %>
+                <% end %>
+              </div>
+              <div class="content">
                 <time><%= dream.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新  <%# 投稿した日(日本時間に設定) %>
               </div>
             </div>
