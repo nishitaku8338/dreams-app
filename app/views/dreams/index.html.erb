@@ -41,9 +41,13 @@
               <div class="content">
                 <% if user_signed_in? %>  <%# ログインしたユーザーのみいいね機能がみれる %>
                   <% if current_user.already_favorited?(dream) %>  <%# いいねを押した記事がある判断する %>
-                    <%= link_to 'いいねを外す', dream_like_path(@dreams, dream), method: :delete %>
+                    <%= link_to dream_like_path(@dreams, dream), method: :delete do %>
+                      <i class="fas fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
+                    <% end %>
                   <% else %>
-                    <%= link_to 'いいね', dream_likes_path(dream), method: :post %>
+                    <%= link_to dream_likes_path(dream), method: :post do %>
+                      <i class="far fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
+                    <% end %>
                   <% end %>
                   <%= dream.likes.count %>  <%# いいねの数を表示する %>
                 <% end %>
