@@ -41,6 +41,7 @@
                       <i class="fas fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
                     <% end %>
                   <% else %>
+                  この夢語を応援→
                     <%= link_to dream_likes_path(@dream), method: :post do %>
                       <i class="far fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
                     <% end %>
@@ -51,7 +52,7 @@
                   <%= link_to "編集画面へ", edit_dream_path(@dream), class: "button is-success" %>
                 <% end %>
               <% else %>
-                <table class="table is-narrow"><td>登録者のいいね数👍：<%= @dream.likes.count %></td></table>
+                <table class="table is-narrow"><td>夢語応援者👍：<%= @dream.likes.count %></td></table>
               <% end %>
             </div>
           </div>

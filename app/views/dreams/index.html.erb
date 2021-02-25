@@ -1,7 +1,7 @@
 <section class="hero is-success">
   <div class="hero-body">
     <div class="container">
-      <h1 class="title">
+      <h1 class="title a">
         夢語一覧
       </h1>
     </div>
@@ -45,6 +45,7 @@
                       <i class="fas fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
                     <% end %>
                   <% else %>
+                    この夢語を応援→
                     <%= link_to dream_likes_path(dream), method: :post do %>
                       <i class="far fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
                     <% end %>
@@ -52,7 +53,7 @@
                   <%= dream.likes.count %></table>  <%# いいねの数を表示する %>
                 <% else %>
                   <table class="table is-narrow">夢語：<%= dream.title %></table>
-                  <table class="table is-narrow">登録者のいいね数👍：<%= dream.likes.count %></table>  <%# いいねの数を表示する %>
+                  <table class="table is-narrow">夢語応援者👍：<%= dream.likes.count %></table>  <%# いいねの数を表示する %>
                 <% end %>
               </div>
               <div class="content">
