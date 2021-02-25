@@ -22,6 +22,8 @@ class DreamsController < ApplicationController
   end
 
   def show
+    @comment = Comment.new  # form_withのmodelの引数に必要
+    @comments = @dream.comments.includes(:user)  # 投稿された記事の全てのコメントを取得する
   end
 
   def edit
