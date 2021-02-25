@@ -55,7 +55,7 @@
                 <%# コメントフォーム作成範囲の始まり %>
                 <table class="table is-narrow">この記事にコメントする
                   <div>
-                    <%= form_with(model: @dream, local: true) do |form| %>
+                    <%= form_with(model: [@dream, @comment], local: true) do |form| %>
                       <%= form.text_area :text, placeholder: "コメントする", rows: "5" %>
                       <%= form.submit "SEND" %>
                     <% end %>
@@ -72,6 +72,7 @@
                 </table>
                 <table class="table is-narrow">
                   <td>コメント一覧表示</td>
+                  <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
                 </table>
               <% end %>
               <%# コメントフォーム作成範囲の終わり %>
