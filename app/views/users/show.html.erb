@@ -2,7 +2,7 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        マイページ
+        <%= @user.username %>さんの、マイページ
       </h1>
     </div>
   </div>
@@ -43,7 +43,7 @@
             <table class="table is-fullwidth">
               <tr>
                 <td>
-                  <%= simple_format @user.profile %>
+                  <strong>プロフィール内容</strong><%= simple_format @user.profile %>
                 </td>
               </tr>
             </table>

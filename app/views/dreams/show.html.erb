@@ -2,7 +2,7 @@
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        夢語り詳細
+        夢語の詳細
       </h1>
     </div>
   </div>
@@ -28,7 +28,7 @@
             <div class="content">
               <table class="table is-narrow">
                 <tr>
-                  <th>夢語り</th>
+                  <th>夢語</th>
                 </tr>
                 <tr>
                   <td><%= simple_format @dream.body %></td>    <%# 夢語りの内容 %>
@@ -52,7 +52,7 @@
                   <%= link_to "編集画面へ", edit_dream_path(@dream), class: "button is-success" %>
                 <% end %>
               <% else %>
-                <table class="table is-narrow"><td>夢語応援者👍：<%= @dream.likes.count %></td></table>
+                <table class="table is-narrow"><td>夢語応援者数👍：<%= @dream.likes.count %></td></table>
               <% end %>
             </div>
           </div>
