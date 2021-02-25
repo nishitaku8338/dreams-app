@@ -51,32 +51,11 @@
                     <%= link_to "編集画面へ", edit_dream_path(@dream), class: "button is-success" %>
                   <% end %>
                 </table>
-
-                <%# コメントフォーム作成範囲の始まり %>
-                <table class="table is-narrow">この記事にコメントする
-                  <div>
-                    <%= form_with(model: [@dream, @comment], local: true) do |form| %>
-                      <%= form.text_area :text, placeholder: "コメントする", rows: "5" %>
-                      <%= form.submit "SEND" %>
-                    <% end %>
-                  </div>
-                </table>
-
-                <table class="table is-narrow">
-                  コメント一覧表示
-                </table>
-
               <% else %>
                 <table class="table is-narrow">
                   <td>夢語応援者👍：<%= @dream.likes.count %></td>
                 </table>
-                <table class="table is-narrow">
-                  <td>コメント一覧表示</td>
-                  <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-                </table>
               <% end %>
-              <%# コメントフォーム作成範囲の終わり %>
-
             </div>
           </div>
         </div>
@@ -102,3 +81,25 @@
     </div>
   </div>
 </section>
+
+
+<%# コメントフォーム作成範囲の始まり %>
+<% if user_signed_in? %>
+  <table class="table is-narrow">この記事にコメントする
+    <div>
+      <%= form_with(model: [@dream, @comment], local: true) do |f| %>
+        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
+        <%= f.submit "SEND" %>
+      <% end %>
+    </div>
+  </table>
+<% else %>
+  <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
+<% end %>
+<table class="table is-narrow">
+  <h4>＜コメント一覧＞</h4>
+    <% @comments.each do |comment| %>
+      <%= comment.text %>
+    <% end %>
+</table>
+<%# コメントフォーム作成範囲の終わり %>
