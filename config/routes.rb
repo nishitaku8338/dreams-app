@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   resources :users
   resources :dreams do
     resources :likes, only: [:create, :destroy]  # いいね機能のルーティング
+    resources :comments, only: :create
   end
 end
