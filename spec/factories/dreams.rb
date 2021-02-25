@@ -1,8 +1,12 @@
 FactoryBot.define do
   factory :dream do
-    user_id { 1 }
-    title { 'MyString' }
-    body { 'MyText' }
-    image_id { 'MyString' }
+    title { 'タイトル' }
+    body { 'テキスト内容' }
+
+    association :user
+
+    after(:build) do |item| # インスタンスが生成した後画像を生成
+      item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
+    end
   end
 end
