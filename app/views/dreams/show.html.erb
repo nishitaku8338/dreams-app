@@ -28,7 +28,7 @@
             <div class="content">
               <table class="table is-narrow">
                 <tr>
-                  <th>夢語り</th>
+                  <th>夢語</th>
                 </tr>
                 <tr>
                   <td><%= simple_format @dream.body %></td>    <%# 夢語りの内容 %>
@@ -47,13 +47,35 @@
                     <% end %>
                   <% end %>
                   <%= @dream.likes.count %>  <%# いいねの数を表示する %>
+                  <% if @dream.user.id == current_user.id %>  <%# ユーザー本人なら編集ボタンを表示 %>
+                    <%= link_to "編集画面へ", edit_dream_path(@dream), class: "button is-success" %>
+                  <% end %>
                 </table>
-                <% if @dream.user.id == current_user.id %>  <%# ユーザー本人なら編集ボタンを表示 %>
-                  <%= link_to "編集画面へ", edit_dream_path(@dream), class: "button is-success" %>
-                <% end %>
+
+                <%# コメントフォーム作成範囲の始まり %>
+                <table class="table is-narrow">この記事にコメントする
+                  <div>
+                    <%= form_with(model: @dream, local: true) do |form| %>
+                      <%= form.text_area :text, placeholder: "コメントする", rows: "5" %>
+                      <%= form.submit "SEND" %>
+                    <% end %>
+                  </div>
+                </table>
+
+                <table class="table is-narrow">
+                  コメント一覧表示
+                </table>
+
               <% else %>
-                <table class="table is-narrow"><td>夢語応援者👍：<%= @dream.likes.count %></td></table>
+                <table class="table is-narrow">
+                  <td>夢語応援者👍：<%= @dream.likes.count %></td>
+                </table>
+                <table class="table is-narrow">
+                  <td>コメント一覧表示</td>
+                </table>
               <% end %>
+              <%# コメントフォーム作成範囲の終わり %>
+
             </div>
           </div>
         </div>
