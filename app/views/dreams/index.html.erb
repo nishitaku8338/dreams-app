@@ -35,26 +35,30 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <div class="title"><%= link_to dream.user.username, user_path(dream.user.id) %></div>  <%# 投稿したユーザーのユーザー名を表示し、クリックしたらユーザー詳細画面に遷移 %>
+                  夢語者<div class="title"><%= link_to dream.user.username, user_path(dream.user.id) %></div>  <%# 投稿したユーザーのユーザー名を表示し、クリックしたらユーザー詳細画面に遷移 %>
                 </div>
               </div>
-              <div class="content">
-                <% if user_signed_in? %>  <%# ログインしたユーザーのみいいね機能がみれる %>
-                  <% if current_user.already_favorited?(dream) %>  <%# いいねを押した記事がある判断する %>
-                    <%= link_to dream_like_path(@dreams, dream), method: :delete do %>
-                      <i class="fas fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
+              <div class="card-content">
+                <div class="media">
+                  <div class="content">
+                    <% if user_signed_in? %>  <%# ログインしたユーザーのみいいね機能がみれる %>
+                      <% if current_user.already_favorited?(dream) %>  <%# いいねを押した記事がある判断する %>
+                        <%= link_to dream_like_path(@dreams, dream), method: :delete do %>
+                          <i class="fas fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
+                        <% end %>
+                      <% else %>
+                        この夢語を応援→
+                        <%= link_to dream_likes_path(dream), method: :post do %>
+                          <i class="far fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
+                        <% end %>
+                      <% end %>
+                      <%= dream.likes.count %></table>  <%# いいねの数を表示する %>
+                    <% else %>
+                      <table class="table is-narrow">夢語：<%= dream.title %></table>
+                      <table class="table is-narrow">夢語応援者数👍：<%= dream.likes.count %></table>  <%# いいねの数を表示する %>
                     <% end %>
-                  <% else %>
-                    この夢語を応援→
-                    <%= link_to dream_likes_path(dream), method: :post do %>
-                      <i class="far fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
-                    <% end %>
-                  <% end %>
-                  <%= dream.likes.count %></table>  <%# いいねの数を表示する %>
-                <% else %>
-                  <table class="table is-narrow">夢語：<%= dream.title %></table>
-                  <table class="table is-narrow">夢語応援者👍：<%= dream.likes.count %></table>  <%# いいねの数を表示する %>
-                <% end %>
+                  </div>
+                </div>
               </div>
               <div class="content">
                 <time><%= dream.updated_at.strftime("%Y-%m-%d %H:%M") %></time>更新  <%# 投稿した日(日本時間に設定) %>
