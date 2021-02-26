@@ -8,10 +8,25 @@
       </div>
       <div class="columns is-centered">
         <div class="column is-5">
-          <br>
-          <%= link_to "ログイン", new_user_session_path, class: "button is-info is-fullwidth" %>
-          <br>
-          <%= link_to "新規登録", new_user_registration_path, class: "button is-info is-fullwidth" %>
+          <% if user_signed_in? %>
+            <br>
+            <%= link_to "夢語新規投稿", new_dream_path, class: "button is-primary is-fullwidth" %>
+            <br>
+            <%= link_to "マイページ", user_path(current_user), class: "button is-info is-fullwidth" %>
+            <br>
+            <%= link_to "夢語一覧", dreams_path, class: "button is-danger is-fullwidth" %>
+            <br>
+            <%= link_to "夢語者一覧", users_path, class: "button is-warning is-fullwidth" %>
+          <% else %>
+            <br>
+            <%= link_to "ログイン", new_user_session_path, class: "button is-primary is-fullwidth" %>
+            <br>
+            <%= link_to "新規登録", new_user_registration_path, class: "button is-info is-fullwidth" %>
+            <br>
+            <%= link_to "夢語一覧", dreams_path, class: "button is-danger is-fullwidth" %>
+            <br>
+            <%= link_to "夢語者一覧", users_path, class: "button is-warning is-fullwidth" %>
+          <% end %>
         </div>
       </div>
     </div>

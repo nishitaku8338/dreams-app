@@ -1,8 +1,8 @@
-<section class="hero is-success">
+<section class="hero is-warning">
   <div class="hero-body">
     <div class="container">
       <h1 class="title">
-        夢を語る者一覧
+        夢語者一覧
       </h1>
     </div>
   </div>
@@ -21,7 +21,7 @@
                     <% if user.profile_image.present? %>  <%# プロフィール画像がある場合表示する %>
                       <%= image_tag user.profile_image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0").processed %>
                     <% else %>                            <%# プロフィール画像がない場合サンプル画像を表示する %>
-                      <%= image_tag "item-sample.png" %>
+                      <%= image_tag "unnamed.png" %>
                     <% end %>
                   <% end %>
                 </figure>
