@@ -60,22 +60,57 @@
           </div>
         </div>
       </div>
+      
       <div class="column is-4">
         <article class="panel is-link">
+
           <p class="panel-heading">
             <%= @dream.user.username %>     <%# 投稿したユーザー名を表示 %>
+            さんプロフィール情報
           </p>
+
           <div class="panel-block">
             <p class="control">
               <%= @dream.user.profile %>    <%# 投稿したユーザーのプロフィールを表示 %>
             </p>
           </div>
+          
           <%= link_to user_path(@dream.user), class: "panel-block" do %>   <%# 投稿したユーザーのユーザー詳細ページに遷移させる %>
           <span class="panel-icon">
             <i class="fas fa-user" aria-hidden="true"></i>  <%# Font Awesomeを導入 アイコンが表示されるようになる %>
           </span>
           <%= @dream.user.username %>さんのページへ  <%# ユーザー名をクリックすると、投稿したユーザーの詳細ページに遷移する %>
           <% end %>
+
+          <%# コメントフォーム %>
+          <% if user_signed_in? %>
+            <table class="table is-narrow">
+              <div class="field">
+                <div class="panel-block">
+                  <span class="panel-icon">
+                    <i class="far fa-comment"></i>
+                  </span>
+                  <p>この記事にコメントする</p>
+                </div>
+              </div>
+
+              <%= form_with(model: [@dream, @comment], local: true) do |f| %>
+                <div class="field">
+                  <%= f.text_area :text, placeholder: "コメントする", rows: "5", class: "textarea" %>
+                </div>
+
+                <div class="field has-text-centered">
+                  <%= f.submit "コメントを送信", class: "button is-warning" %>
+                </div>
+              <% end %>
+            </table>
+          
+          <% else %>
+            <div class="panel-block">
+              <strong><p>※コメントの投稿はログインが必要です※</p></strong>
+            </div>
+          <% end %>
+          <%# コメントフォーム %>
         </article>
       </div>
     </div>
@@ -86,31 +121,10 @@
   <div class="container">
     <div class="columns is-centered">
       <div class="column is-7">
-        <%# コメントフォーム %>
-          <% if user_signed_in? %>
-            <table class="table is-narrow">
-              <div class="field">
-                <p class="title is-5">この記事にコメントする</p>
-              </div>
-
-              <%= form_with(model: [@dream, @comment], local: true) do |f| %>
-                <div class="field">
-                  <%= f.text_area :text, placeholder: "コメントする", rows: "2", class: "textarea" %>
-                </div>
-
-                <div class="field">
-                  <%= f.submit "コメントする", class: "button is-success" %>
-                </div>
-              <% end %>
-            </table>
-          <% else %>
-            <strong><p>※コメントの投稿はログインが必要です※</p></strong>
-          <% end %>
-        <%# コメントフォーム %>
 
         <%# コメント一覧表示 %>
           <table class="table is-narrow">
-            <h4>〜コメント一覧〜</h4>
+            <h4 class="has-text-centered">〜コメント一覧〜</h4>
             <% @comments.each do |comment| %>
               <p>
                 <div class="field">
@@ -125,6 +139,7 @@
             <% end %>
           </table>
         <%# コメント一覧表示 %>
+
       </div>
     </div>
   </div>
