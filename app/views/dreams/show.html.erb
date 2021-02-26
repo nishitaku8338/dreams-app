@@ -37,19 +37,32 @@
               <% if user_signed_in? %>
                 <table class="table is-narrow">
                   <% if current_user.already_favorited?(@dream) %>  <%# いいねを押した記事がある判断する %>
-                    <%= link_to dream_like_path(@dream), method: :delete do %>
-                      <i class="fas fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
-                    <% end %>
+                    <th>
+                      <tr>
+                        <%= link_to dream_like_path(@dream), method: :delete do %>
+                          <i class="fas fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
+                        <% end %>
+                        いいね数：<%= @dream.likes.count %>  <%# いいねの数を表示する %>
+                      </tr>
+                    </th>
                   <% else %>
-                  この夢語を応援→
-                    <%= link_to dream_likes_path(@dream), method: :post do %>
-                      <i class="far fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
-                    <% end %>
+                    <tr>
+                      <th>
+                        この夢語を応援する→
+                          <%= link_to dream_likes_path(@dream), method: :post do %>
+                            <i class="far fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
+                          <% end %>
+                        いいね数：<%= @dream.likes.count %>  <%# いいねの数を表示する %>
+                      </th>
+                    </tr>
                   <% end %>
-                  <%= @dream.likes.count %>  <%# いいねの数を表示する %>
-                  <% if @dream.user.id == current_user.id %>  <%# ユーザー本人なら編集ボタンを表示 %>
-                    <%= link_to "編集画面へ", edit_dream_path(@dream), class: "button is-success" %>
-                  <% end %>
+                    <tr>
+                      <th>
+                        <% if @dream.user.id == current_user.id %>  <%# ユーザー本人なら編集ボタンを表示 %>
+                          <%= link_to "編集画面へ", edit_dream_path(@dream), class: "button is-success" %>
+                        <% end %>
+                      </th>
+                    </tr>
                 </table>
               <% else %>
                 <table class="table is-narrow">
