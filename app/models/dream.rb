@@ -8,4 +8,5 @@ class Dream < ApplicationRecord
   belongs_to :user
   has_one_attached :image  # Active_storageのアソシエーション
   has_many :likes, dependent: :destroy  # 投稿が削除された時にいいねも削除する
+  has_many :comments, dependent: :destroy  # 投稿が削除された時にコメントも削除する
 end
