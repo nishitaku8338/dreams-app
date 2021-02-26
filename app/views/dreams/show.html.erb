@@ -141,7 +141,7 @@
             <% @comments.each do |comment| %>
               <p>
                 <div class="field">
-                  <strong><%= comment.user.username %>さん:</strong>
+                  <strong><%= link_to comment.user.username, user_path(comment.user_id) %>さん:</strong>
                 </div>
               </p>
               <p>
