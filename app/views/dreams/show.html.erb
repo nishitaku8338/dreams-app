@@ -82,24 +82,50 @@
   </div>
 </section>
 
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-7">
+        <%# コメントフォーム %>
+          <% if user_signed_in? %>
+            <table class="table is-narrow">
+              <div class="field">
+                <p class="title is-5">この記事にコメントする</p>
+              </div>
 
-<%# コメントフォーム作成範囲の始まり %>
-<% if user_signed_in? %>
-  <table class="table is-narrow">この記事にコメントする
-    <div>
-      <%= form_with(model: [@dream, @comment], local: true) do |f| %>
-        <%= f.text_area :text, placeholder: "コメントする", rows: "2" %>
-        <%= f.submit "SEND" %>
-      <% end %>
+              <%= form_with(model: [@dream, @comment], local: true) do |f| %>
+                <div class="field">
+                  <%= f.text_area :text, placeholder: "コメントする", rows: "2", class: "textarea" %>
+                </div>
+
+                <div class="field">
+                  <%= f.submit "コメントする", class: "button is-success" %>
+                </div>
+              <% end %>
+            </table>
+          <% else %>
+            <strong><p>※コメントの投稿はログインが必要です※</p></strong>
+          <% end %>
+        <%# コメントフォーム %>
+
+        <%# コメント一覧表示 %>
+          <table class="table is-narrow">
+            <h4>〜コメント一覧〜</h4>
+            <% @comments.each do |comment| %>
+              <p>
+                <div class="field">
+                  <strong><%= comment.user.username %>さん:</strong>
+                </div>
+              </p>
+              <p>
+                <div class="field">
+                  <%= simple_format comment.text %>
+                </div>
+              </p>
+            <% end %>
+          </table>
+        <%# コメント一覧表示 %>
+      </div>
     </div>
-  </table>
-<% else %>
-  <strong><p>※※※ コメントの投稿には新規登録/ログインが必要です ※※※</p></strong>
-<% end %>
-<table class="table is-narrow">
-  <h4>＜コメント一覧＞</h4>
-    <% @comments.each do |comment| %>
-      <%= comment.text %>
-    <% end %>
-</table>
-<%# コメントフォーム作成範囲の終わり %>
+  </div>
+</section>
