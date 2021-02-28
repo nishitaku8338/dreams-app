@@ -1,24 +1,62 @@
-# README
+## users テーブル
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+|Column               |Type     |Options                     |
+|---------------------|---------|----------------------------|
+|username             |string   |null: false                 |
+|email                |string   |null: false, unique: true   |
+|encrypted_password   |string   |null: false                 |
+|profile              |text     |                            |
+|profile_image_id     |string   |                            |
 
-Things you may want to cover:
 
-* Ruby version
+### Association
+has_many :dreams
+has_many :likes
+has_many :comments
+has_one_attached :profile_image
 
-* System dependencies
 
-* Configuration
 
-* Database creation
+## dreams テーブル
 
-* Database initialization
+|Column               |Type         |Options                          |
+|---------------------|-------------|---------------------------------|
+|user                 |references   |null: false, foreign_key: true   |
+|title                |string       |null: false                      |
+|body                 |text         |null: false                      |
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+### Association
+belongs_to :user
+has_many :likes, dependent: :destroy
+has_many :comments, dependent: :destroy
+has_one_attached :image
 
-* Deployment instructions
 
-* ...
+
+## likes デーブル
+
+|Column               |Type         |Options                          |
+|---------------------|-------------|---------------------------------|
+|user                 |references   |null: false, foreign_key: true   |
+|dream                |references   |null: false, foreign_key: true   |
+
+
+### Association
+belongs_to :user
+belongs_to :dream
+
+
+
+## comments テーブル
+
+|Column               |Type         |Options                          |
+|---------------------|-------------|---------------------------------|
+|user                 |references   |null: false, foreign_key: true   |
+|dream                |references   |null: false, foreign_key: true   |
+|text                 |text         |null: false                      |
+
+
+### Association
+belongs_to :user
+belongs_to :dream
