@@ -43,19 +43,21 @@
                   <div class="content">
                     <% if user_signed_in? %>  <%# ログインしたユーザーのみいいね機能がみれる %>
                       <% if current_user.already_favorited?(dream) %>  <%# いいねを押した記事がある判断する %>
+                        <table class="table is-narrow"><b>夢：<%= dream.title %></b></table>
                         <%= link_to dream_like_path(@dreams, dream), method: :delete do %>
                           <i class="fas fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
                         <% end %>
                       <% else %>
-                        この夢語を応援→
+                        <table class="table is-narrow"><b>夢：<%= dream.title %></b></table>
+                        この夢を応援する👍→
                         <%= link_to dream_likes_path(dream), method: :post do %>
                           <i class="far fa-heart"></i>  <%# Font Awesomeでハートマークを導入 %>
                         <% end %>
                       <% end %>
                       <%= dream.likes.count %></table>  <%# いいねの数を表示する %>
                     <% else %>
-                      <table class="table is-narrow">夢語：<%= dream.title %></table>
-                      <table class="table is-narrow">夢語応援者数👍：<%= dream.likes.count %></table>  <%# いいねの数を表示する %>
+                      <table class="table is-narrow"><b>夢：<%= dream.title %></b></table>
+                      <table class="table is-narrow">応援者数👍：<%= dream.likes.count %></table>  <%# いいねの数を表示する %>
                     <% end %>
                   </div>
                 </div>
