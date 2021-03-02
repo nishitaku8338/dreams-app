@@ -86,8 +86,11 @@ RSpec.describe '夢語投稿を編集', type: :system do
   context '夢語投稿の編集ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿した夢語の編集画面には遷移できない' do
       # 夢語1を投稿したユーザーでログインする
+      sign_in(@dream1.user)
       # 夢語2の詳細ページへ移動する
+      visit dream_path(@dream2)
       # 夢語2の詳細ページに「編集」ボタンがないことを確認する
+      expect(page).to have_no_content('編集画面へ')
     end
     it 'ログインしていないと夢語投稿の編集画面には遷移できない' do
       # トップページに移動する
