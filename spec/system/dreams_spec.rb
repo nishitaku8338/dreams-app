@@ -39,7 +39,9 @@ RSpec.describe '新規夢語投稿', type: :system do
   context '新規夢語投稿ができないとき'do
     it 'ログインしていないと新規投稿ページに遷移できない' do
       # トップページに遷移する
+      visit root_path
       # 新規投稿ページへのリンクがない
+      expect(page).to have_no_content('夢語新規投稿')
     end
   end
 end
