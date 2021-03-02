@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :dream do
-    title { 'タイトル' }
-    body { 'テキスト内容' }
+    title {Faker::Lorem.sentence}
+    body {Faker::Lorem.sentence}
 
     association :user
 
