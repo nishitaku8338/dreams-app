@@ -14,7 +14,7 @@ class DreamsController < ApplicationController
   def create
     @dream = Dream.new(dream_params)   # ストロングパラメーターに引き渡す
     if @dream.save                     # 投稿を保存する
-      redirect_to dream_path(@dream),  # 保存できたら詳細ページに遷移する
+      redirect_to dreams_path,         # 保存できたら一覧ページに遷移する
       notice: "夢語を投稿しました"        # フラッシュメッセージを作成
     else
       render :new                      # 保存できなかったら投稿ページにとどまる
