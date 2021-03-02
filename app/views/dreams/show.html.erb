@@ -60,6 +60,7 @@
                       <th>
                         <% if @dream.user.id == current_user.id %>  <%# ユーザー本人なら編集ボタンを表示 %>
                           <%= link_to "編集画面へ", edit_dream_path(@dream), class: "button is-success" %>
+                          <%= link_to "削除する", dream_path(@dream), method: :delete, class: "button is-danger" %>
                         <% end %>
                       </th>
                     </tr>
