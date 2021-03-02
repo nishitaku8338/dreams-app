@@ -3,9 +3,8 @@ require 'rails_helper'
 RSpec.describe '新規夢語投稿', type: :system do
   before do
     @user = FactoryBot.create(:user)
-    @dream_title = 'タイトル'
-    @dream_body = 'テキスト内容'
-    @dream = FactoryBot.create(:dream)
+    @dream_title = Faker::Lorem.sentence
+    @dream_body = Faker::Lorem.sentence
   end
 
   context '新規夢語投稿ができるとき'do
@@ -13,7 +12,7 @@ RSpec.describe '新規夢語投稿', type: :system do
       # ログインする
       sign_in(@user)
       # 新規投稿ページへのリンクがあることを確認する
-      expect(page).to have_content('投稿')
+      expect(page).to have_content('夢語新規投稿')
       # 投稿ページに移動する
       visit new_dream_path
       # フォームに情報を入力する
@@ -28,12 +27,11 @@ RSpec.describe '新規夢語投稿', type: :system do
         find('input[name="commit"]').click
       }.to change { Dream.count }.by(1)
       # 夢語詳細ページに遷移する
-      visit dream_path(@dream)
+      expect(current_path).to eq(dreams_path)
       # 夢語詳細には先ほど投稿した内容のイメージ画像が存在することを確認する
       expect(page).to have_selector('img')
       # 夢語詳細には先ほど投稿した内容の記事が存在することを確認する
       expect(page).to have_content(@dream_title)
-      expect(page).to have_content(@dream_body)
     end
   end
   context '新規夢語投稿ができないとき'do
@@ -115,12 +113,19 @@ RSpec.describe '夢語投稿削除', type: :system do
   context '投稿削除ができるとき' do
     it 'ログインしたユーザーは自らが投稿した夢語の削除ができる' do
       # 夢語1を投稿したユーザーでログインする
+      sign_in(@dream1.user)
       # 夢語1詳細ページに移動する
+      visit dream_path(@dream1)
       # 夢語1に「削除」ボタンがあることを確認する
+      expect(page).to have_content('削除する')
       # 投稿を削除するとレコードの数が1減ることを確認する
+      expect {
+      find_link('削除する',  href: dream_path(@dream1)).click
+      }.to change { Dream.count }.by(-1)
       # 夢語一覧ページに遷移する
-      # 夢語一覧ページには先ほど投稿した内容のイメージ画像が存在することを確認する
+      expect(current_path).to eq(dreams_path)
       # 夢語一覧ページには夢語1の内容が存在しないことを確認する（タイトル）
+      expect(page).to have_no_content("#{@dream1.title}")
     end
   end
   context '投稿削除ができないとき' do
