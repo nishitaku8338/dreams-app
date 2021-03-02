@@ -139,10 +139,15 @@ RSpec.describe '夢語投稿削除', type: :system do
     end
     it 'ログインしていないと夢語の削除ボタンがない' do
       # トップページに移動する
+      visit root_path
       # 夢語1詳細ページに移動する
+      visit dream_path(@dream1)
       # 夢語1に「削除」ボタンが無いことを確認する
+      expect(page).to have_no_content('削除する')
       # 夢語2詳細ページに移動する
+      visit dream_path(@dream2)
       # 夢語2に「削除」ボタンが無いことを確認する
+      expect(page).to have_no_content('削除する')
     end
   end
 end
