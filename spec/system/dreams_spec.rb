@@ -152,5 +152,24 @@ RSpec.describe '夢語投稿削除', type: :system do
   end
 end
 
+RSpec.describe '夢語投稿詳細', type: :system do
+  before do
+    @dream = FactoryBot.create(:dream)
+  end
+  it 'ログインしたユーザーは夢語詳細ページに遷移してコメント投稿欄が表示される' do
+    # ログインする
+    # 詳細ページに遷移する
+    # 詳細ページに夢語投稿の内容が含まれている
+    # コメント用のフォームが存在する
+  end
+  it 'ログインしていない状態で夢語詳細ページに遷移できるもののコメント投稿欄が表示されない' do
+    # トップページに移動する
+    # 詳細ページに遷移する
+    # 詳細ページに夢語投稿の内容が含まれている
+    # フォームが存在しないことを確認する
+    # 「コメントの投稿はログインが必要です」が表示されていることを確認する
+  end
+end
+
 # テストコード実行コマンド
 # bundle exec rspec spec/system/dreams_spec.rb
