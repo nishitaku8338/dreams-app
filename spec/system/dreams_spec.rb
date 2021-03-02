@@ -131,8 +131,11 @@ RSpec.describe '夢語投稿削除', type: :system do
   context '投稿削除ができないとき' do
     it 'ログインしたユーザーは自分以外が投稿した夢語の削除ができない' do
       # 夢語1を投稿したユーザーでログインする
+      sign_in(@dream1.user)
       # 夢語2詳細ページに移動する
+      visit dream_path(@dream2)
       # 夢語2に「削除」ボタンが無いことを確認する
+      expect(page).to have_no_content('削除する')
     end
     it 'ログインしていないと夢語の削除ボタンがない' do
       # トップページに移動する
