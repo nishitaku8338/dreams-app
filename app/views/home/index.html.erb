@@ -18,7 +18,7 @@
             <br>
             <%= link_to "夢語者一覧", users_path, class: "button is-warning is-fullwidth" %>
             <br>
-            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light is-fullwidth" %>
+            <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-dark is-fullwidth" %>
           <% else %>
             <br>
             <%= link_to "ログイン", new_user_session_path, class: "button is-primary is-fullwidth" %>
@@ -36,9 +36,9 @@
   <br>
   <div class="columns is-centered">
     <div class="column">
-      <figure>
-        <div class="main-image"></div>  <%# イメージ画像をSCSSで編集 %>
-      </figure>
+      <p class="level-item has-text-centered">
+        <img class="main-image" style="height: 90vh;">
+      </p>
     </div>
   </div>
 </section>
