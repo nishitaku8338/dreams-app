@@ -170,10 +170,17 @@ RSpec.describe '夢語投稿詳細', type: :system do
   end
   it 'ログインしていない状態で夢語詳細ページに遷移できるもののコメント投稿欄が表示されない' do
     # トップページに移動する
+    visit root_path
     # 詳細ページに遷移する
+    visit dream_path(@dream1)
     # 詳細ページに夢語投稿の内容が含まれている
+    expect(page).to have_content("#{@dream1.title}")
+    expect(page).to have_content("#{@dream1.body}")
+    expect(page).to have_selector('img')
     # フォームが存在しないことを確認する
+    expect(page).to have_no_selector 'form'
     # 「コメントの投稿はログインが必要です」が表示されていることを確認する
+    expect(page).to have_content("コメントの投稿はログインが必要です")
   end
 end
 
