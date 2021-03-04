@@ -138,12 +138,15 @@ Password：abcd1234
 - 登録したメールアドレスを確認できる
 
 ![user_mypage2](https://user-images.githubusercontent.com/75607727/109917742-28e92100-7cf9-11eb-82c0-a58528a59bfb.jpg)
+ユーザー本人が投稿した記事<br>
 - ユーザーの投稿した記事へ遷移できるボタンがある(投稿してない場合空白)
 - 投稿した記事の編集ページへ遷移できるボタンがある(投稿してない場合空白)
 - 投稿した記事を削除できるボタンがある(投稿してない場合空白)
 
 
 ### マイページ編集機能
+#### ユーザー詳細編集画面
+<img width="1369" alt="user_mypage_edit" src="https://user-images.githubusercontent.com/75607727/109918982-3ef7e100-7cfb-11eb-9a32-9da6de2a02ec.png">
 
 
 ### ユーザー一覧機能
