@@ -268,7 +268,17 @@ Password：abcd1234
 
 
 ### コメント機能
+#### 投稿した記事にコメント
+<img width="408" alt="comment1" src="https://user-images.githubusercontent.com/75607727/109930732-5343da00-7d0b-11eb-94a2-3a98e0bd7a01.png">
 
+投稿詳細ページでコメントを投稿することができる<br>
+- ログインしているユーザーのみコメントを投稿することができる<br>
+
+<img width="1049" alt="comment2" src="https://user-images.githubusercontent.com/75607727/109930968-9736df00-7d0b-11eb-9a75-501d19f462c4.png">
+- コメントした内容は、投稿詳細ページのコメント一覧に表示される<br>
+
+<img width="429" alt="comment3" src="https://user-images.githubusercontent.com/75607727/109931172-dbc27a80-7d0b-11eb-87c0-1aeb968f4647.png">
+- ログインしていないユーザーはコメントすることができない
 
 
 
