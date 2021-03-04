@@ -116,7 +116,8 @@ Password：abcd1234
 <img width="1402" alt="session" src="https://user-images.githubusercontent.com/75607727/109917335-7add7700-7cf8-11eb-8cc4-bbaa8a1a695d.png">
 
 ### マイページ機能
-
+![user_mypage1](https://user-images.githubusercontent.com/75607727/109917704-1bcc3200-7cf9-11eb-899b-23a86f83ddb8.jpg)
+![user_mypage2](https://user-images.githubusercontent.com/75607727/109917742-28e92100-7cf9-11eb-82c0-a58528a59bfb.jpg)
 
 ### マイページ編集機能
 
