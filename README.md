@@ -85,7 +85,7 @@ Password：abcd1234
 
 ## 実装した機能についてのGIFと説明(DEMO)
 ### トップページ
-https://gyazo.com/8cb81710bbdc9a19156e35c8583f925d
+https://user-images.githubusercontent.com/75607727/109909925-54b0da80-7cea-11eb-9448-5a7304b7cb8b.mp4
 
 
 ## 実装予定の機能
