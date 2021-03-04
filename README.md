@@ -317,32 +317,33 @@ Password：abcd1234
 ruby '2.6.5'<br>
 Rails 6.0.3.5
 
+
 ### フロントエンド
 HTML<br>
 SCCS<br>
 Font Awesome<br>
 bulma-rails
 
+
 ### データベース
-mysql2 0.4.4
+mysql2 (0.5.3)
+
 
 ### インフラ
-
-
-### Webサーバー（本番環境）
-
-
-### アプリケーションサーバー（本番環境）
 heroku
+
 
 ### ソース管理
 GitHub,GitHubDesktop
 
+
 ### テスト
 RSoec
 
+
 ### エディタ
 VSCode
+
 
 # テーブル詳細
 ## users テーブル
