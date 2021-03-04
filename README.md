@@ -85,21 +85,18 @@ Password：abcd1234
 
 ## 実装した機能についてのGIFと説明(DEMO)
 ### トップページ
+<img width="1401" alt="top2" src="https://user-images.githubusercontent.com/75607727/109912539-a1e37b00-7cef-11eb-8a21-1734ead3db6f.png">
 
-
-ログインしていない状態
+ログインしていない状態<br>
 - 新規登録/ログインページへ遷移できるボタンがある<br>
 - ユーザー一覧を確認できるページへ遷移できるボタンがある<br>
 - 投稿一覧を確認できるページへ遷移できるボタンがある<br>
 
 <img width="1410" alt="top1" src="https://user-images.githubusercontent.com/75607727/109910053-a0638400-7cea-11eb-894d-51248ca86e68.png">
-動画
-https://user-images.githubusercontent.com/75607727/109909925-54b0da80-7cea-11eb-9448-5a7304b7cb8b.mp4
 
-
-ログインしている状態
-・ログイン時は、ログアウトできるボタンがある
-・ログイン時は、マイページに遷移できるボタンがある
+ログインしている状態<br>
+・ログイン時は、ログアウトできるボタンがある<br>
+・ログイン時は、マイページに遷移できるボタンがある<br>
 ・ログイン時は、投稿できるページに遷移できるボタンがある
 
 
