@@ -93,27 +93,40 @@ Password：abcd1234
 ### トップページ機能
 <img width="1401" alt="top2" src="https://user-images.githubusercontent.com/75607727/109912539-a1e37b00-7cef-11eb-8a21-1734ead3db6f.png">
 
-ログインしていない状態<br>
+#### ログインしていない状態<br>
 - 新規登録/ログインページへ遷移できるボタンがある<br>
 - ユーザー一覧を確認できるページへ遷移できるボタンがある<br>
 - 投稿一覧を確認できるページへ遷移できるボタンがある<br><br>
 
 <img width="1410" alt="top1" src="https://user-images.githubusercontent.com/75607727/109910053-a0638400-7cea-11eb-894d-51248ca86e68.png">
 
-ログインしている状態<br>
+#### ログインしている状態<br>
 - ログイン時は、ログアウトできるボタンがある<br>
 - ログイン時は、マイページに遷移できるボタンがある<br>
 - ログイン時は、投稿できるページに遷移できるボタンがある<br>
 - ユーザー一覧を確認できるページへ遷移できるボタンがある<br>
-- 投稿一覧を確認できるページへ遷移できるボタンがある<br><br>
+- 投稿一覧を確認できるページへ遷移できるボタンがある<br>
 
 
 ### ユーザ管理機能
-新規登録画面
+#### 新規登録画面
 <img width="1402" alt="sign_in" src="https://user-images.githubusercontent.com/75607727/109917247-57b2c780-7cf8-11eb-8171-40efabb041d1.png">
 
-ログイン画面
+新規登録画面で必要な入力を実行するとアカウントを作成できる<br>
+新規登録画面の必要な入力要素<br>
+- ユーザーネーム
+- メールアドレス
+- パスワード
+
+#### ログイン画面
 <img width="1402" alt="session" src="https://user-images.githubusercontent.com/75607727/109917335-7add7700-7cf8-11eb-8cc4-bbaa8a1a695d.png">
+
+ログイン画面で必要な入力を実行すると作成したアカウントに再度ログインできる<br>
+ログイン画面の必要な入力要素<br>
+- メールアドレス
+- パスワード
+アカウントを作成すると各ページで操作できる機能が増える
+
 
 ### マイページ機能
 ![user_mypage1](https://user-images.githubusercontent.com/75607727/109917704-1bcc3200-7cf9-11eb-899b-23a86f83ddb8.jpg)
