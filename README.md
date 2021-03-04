@@ -253,6 +253,19 @@ Password：abcd1234
 - いいねされていないアイコンにクリックするといいねの数が足される<br>
 - いいねされているアイコンにクリックするといいねの数が減る<br>
 
+<img width="425" alt="like3" src="https://user-images.githubusercontent.com/75607727/109929211-90a76800-7d09-11eb-942c-554cc81710a6.png">
+<img width="426" alt="like4" src="https://user-images.githubusercontent.com/75607727/109929326-addc3680-7d09-11eb-8207-b8ccc05f6137.png">
+
+投稿一覧ページでいいねの評価ができる<br>
+ログインしているユーザーのみいいねの評価ができる<br>
+- いいねされていないアイコンにクリックするといいねの数が足される<br>
+- いいねされているアイコンにクリックするといいねの数が減る<br>
+
+<img width="427" alt="like5" src="https://user-images.githubusercontent.com/75607727/109929750-2cd16f00-7d0a-11eb-964a-88a374e0bf4e.png">
+<img width="670" alt="like6" src="https://user-images.githubusercontent.com/75607727/109929790-3b1f8b00-7d0a-11eb-8dc0-5fb6f8388664.png">
+
+ログインしていないユーザーはいいねの評価された数だけ見れる<br>
+
 
 ### コメント機能
 
