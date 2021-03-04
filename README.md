@@ -85,6 +85,8 @@ Password：abcd1234
 
 ## 実装した機能についてのGIFと説明(DEMO)
 ### トップページ
+<img width="1410" alt="top1" src="https://user-images.githubusercontent.com/75607727/109910053-a0638400-7cea-11eb-894d-51248ca86e68.png">
+動画
 https://user-images.githubusercontent.com/75607727/109909925-54b0da80-7cea-11eb-9448-5a7304b7cb8b.mp4
 
 
