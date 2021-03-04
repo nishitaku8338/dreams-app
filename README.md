@@ -131,6 +131,7 @@ Password：abcd1234
 ### マイページ機能
 #### ユーザー詳細画面
 ![user_mypage1](https://user-images.githubusercontent.com/75607727/109917704-1bcc3200-7cf9-11eb-899b-23a86f83ddb8.jpg)
+
 ユーザー本人のマイページ<br>
 - ユーザーのプロフィールが見れる(デフォルトは空白)<br>
 - ユーザーのプロフィール画像が見れる(デフォルトはサンプル画像)<br>
@@ -138,6 +139,7 @@ Password：abcd1234
 - 登録したメールアドレスを確認できる<br>
 
 ![user_mypage2](https://user-images.githubusercontent.com/75607727/109917742-28e92100-7cf9-11eb-82c0-a58528a59bfb.jpg)
+
 ユーザー本人が投稿した記事<br>
 - ユーザーの投稿した記事へ遷移できるボタンがある(投稿してない場合空白)<br>
 - 投稿した記事の編集ページへ遷移できるボタンがある(投稿してない場合空白)<br>
@@ -147,6 +149,7 @@ Password：abcd1234
 ### マイページ編集機能
 #### ユーザー詳細編集画面
 <img width="1369" alt="user_mypage_edit" src="https://user-images.githubusercontent.com/75607727/109918982-3ef7e100-7cfb-11eb-9a32-9da6de2a02ec.png">
+
 マイページ編集<br>
 - ユーザーネームの編集ができる<br>
 - メールアドレスの編集ができる<br>
@@ -157,6 +160,7 @@ Password：abcd1234
 ### ユーザー一覧機能
 #### アカウント登録しているユーザー全て
 <img width="1388" alt="users_index" src="https://user-images.githubusercontent.com/75607727/109919566-305df980-7cfc-11eb-8609-127613140244.png">
+
 各ユーザーの情報<br>
 - ユーザーのプロフィール画像が表示される(デフォルトはサンプル画像)<br>
 - ユーザーネームが表示される<br>
@@ -168,6 +172,7 @@ Password：abcd1234
 ### 新規投稿機能
 #### 投稿する記事を作成
 <img width="1355" alt="dream_new" src="https://user-images.githubusercontent.com/75607727/109920568-d1997f80-7cfd-11eb-91ab-ca81fcbbbaee.png">
+
 必要な入力を実行すると作成した記事を投稿できる<br>
 作成する記事は以下を必ず入力する<br>
 ・タイトルを入力する<br>
