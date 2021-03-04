@@ -96,6 +96,7 @@ Password：abcd1234
 動画
 https://user-images.githubusercontent.com/75607727/109909925-54b0da80-7cea-11eb-9448-5a7304b7cb8b.mp4
 
+
 ログインしている状態
 ・ログイン時は、ログアウトできるボタンがある
 ・ログイン時は、マイページに遷移できるボタンがある
