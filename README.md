@@ -10,9 +10,9 @@
 
 
 ### Association
-has_many :dreams
-has_many :likes
-has_many :comments
+has_many :dreams<br>
+has_many :likes<br>
+has_many :comments<br>
 has_one_attached :profile_image
 
 
@@ -27,9 +27,9 @@ has_one_attached :profile_image
 
 
 ### Association
-belongs_to :user
-has_many :likes, dependent: :destroy
-has_many :comments, dependent: :destroy
+belongs_to :user<br>
+has_many :likes, dependent: :destroy<br>
+has_many :comments, dependent: :destroy<br>
 has_one_attached :image
 
 
@@ -43,7 +43,7 @@ has_one_attached :image
 
 
 ### Association
-belongs_to :user
+belongs_to :user<br>
 belongs_to :dream
 
 
@@ -58,5 +58,5 @@ belongs_to :dream
 
 
 ### Association
-belongs_to :user
+belongs_to :user<br>
 belongs_to :dream
